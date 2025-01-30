@@ -1,0 +1,30 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+.formulario {
+    margin-top: v.$separacion;
+    // padding: 0 10rem;
+}
+
+.campo {
+    display: flex;
+    column-gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    
+    label {
+        flex: 0 0 8rem;
+    }
+    input {
+        flex: 1;
+        border: none;
+        border-radius: 1rem;
+        padding: calc(v.$separacion / 4);
+
+        &:disabled {
+            background-color: color.adjust(v.$gris, $lightness: -20%);
+            cursor: not-allowed;
+        }
+    }
+}
