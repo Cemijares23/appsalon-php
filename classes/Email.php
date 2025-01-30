@@ -25,11 +25,11 @@ class Email {
 
         // Server settings
         $mail->isSMTP();                                            //Send using SMTP
-        $mail->Host       = 'sandbox.smtp.mailtrap.io';             //Set the SMTP server to send through
+        $mail->Host       = $_ENV['EMAIL_HOST'];             //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = '46f08abb377ae4';                       //SMTP username
-        $mail->Password   = 'cb3cbfbe2b515b';                       //SMTP password
-        $mail->Port       = 2525;    
+        $mail->Username   = $_ENV['EMAIL_USER'];                       //SMTP username
+        $mail->Password   = $_ENV['EMAIL_PASS'];                       //SMTP password
+        $mail->Port       = $_ENV['EMAIL_PORT'];    
 
         //Recipients
         $mail->setFrom('appsalon@domain.com', 'Chris');
@@ -42,7 +42,7 @@ class Email {
         $contenido = "
             <h4>Hola <strong>". $this->nombre ."</strong>.</h4>
             <p>Has creado exitosamente tu cuenta de AppSalon. Para confirmarla haz click en el siguiente enlace:</p>
-            <a href='http://localhost:3000/confirmar-cuenta?token=". $this->token ."'>Confirmar Cuenta</a>
+            <a href='". $_ENV['APP_URL'] ."/confirmar-cuenta?token=". $this->token ."'>Confirmar Cuenta</a>
             <p>Si no solicitaste una cuenta en AppSalon, puedes ignorar o eliminar este mensaje</p>
         ";
         $contenido .= "</html>";
@@ -57,11 +57,11 @@ class Email {
 
         // Server settings
         $mail->isSMTP();                                            //Send using SMTP
-        $mail->Host       = 'sandbox.smtp.mailtrap.io';             //Set the SMTP server to send through
+        $mail->Host       = $_ENV['EMAIL_HOST'];             //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = '46f08abb377ae4';                       //SMTP username
-        $mail->Password   = 'cb3cbfbe2b515b';                       //SMTP password
-        $mail->Port       = 2525;    
+        $mail->Username   = $_ENV['EMAIL_USER'];                       //SMTP username
+        $mail->Password   = $_ENV['EMAIL_PASS'];                       //SMTP password
+        $mail->Port       = $_ENV['EMAIL_PORT'];    
 
         //Recipients
         $mail->setFrom('appsalon@domain.com', 'Chris');
@@ -74,7 +74,7 @@ class Email {
         $contenido = "
             <h4>Hola <strong>". $this->nombre ."</strong>.</h4>
             <p>Has solicitado reestablecer tu contraseña de AppSalon. Para hacerlo haz click en el siguiente enlace:</p>
-            <a href='http://localhost:3000/recuperar?token=". $this->token ."'>Reestablecer Contraseña</a>
+            <a href='". $_ENV['APP_URL'] ."/recuperar?token=". $this->token ."'>Reestablecer Contraseña</a>
             <p>Si no solicitaste este cambio, puedes ignorar o eliminar este mensaje</p>
         ";
         $contenido .= "</html>";
