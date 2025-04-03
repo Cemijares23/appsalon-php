@@ -42,7 +42,7 @@ class Email {
         $contenido = "
             <h4>Hola <strong>". $this->nombre ."</strong>.</h4>
             <p>Has creado exitosamente tu cuenta de AppSalon. Para confirmarla haz click en el siguiente enlace:</p>
-            <a href='". $_ENV['APP_URL'] ."/confirmar-cuenta?token=". $this->token ."'>Confirmar Cuenta</a>
+            <a href='". $_ENV['SERVER_HOST'] ."/confirmar-cuenta?token=". $this->token ."'>Confirmar Cuenta</a>
             <p>Si no solicitaste una cuenta en AppSalon, puedes ignorar o eliminar este mensaje</p>
         ";
         $contenido .= "</html>";
@@ -74,7 +74,7 @@ class Email {
         $contenido = "
             <h4>Hola <strong>". $this->nombre ."</strong>.</h4>
             <p>Has solicitado reestablecer tu contraseña de AppSalon. Para hacerlo haz click en el siguiente enlace:</p>
-            <a href='". $_ENV['APP_URL'] ."/recuperar?token=". $this->token ."'>Reestablecer Contraseña</a>
+            <a href='". $_ENV['SERVER_HOST'] ."/recuperar?token=". $this->token ."'>Reestablecer Contraseña</a>
             <p>Si no solicitaste este cambio, puedes ignorar o eliminar este mensaje</p>
         ";
         $contenido .= "</html>";
